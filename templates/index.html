@@ -12,7 +12,12 @@
 </head>
 
 <body>
-    {{ template "items" . }}
+    {{ template "form" . }}
+
+    <h2>Items</h2>
+    <ul id="list-items">
+        {{ template "items" . }}
+    </ul>
 </body>
 
 </html>

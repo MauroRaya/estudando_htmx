@@ -1,6 +1,8 @@
 package main
 
 import (
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 )
 
@@ -22,6 +24,21 @@ func main() {
 
 	r.GET("/items", func(c *gin.Context) {
 		c.HTML(200, "index", gin.H{
+			"Items": items,
+		})
+	})
+
+	r.POST("/items", func(c *gin.Context) {
+		name := c.PostForm("Name")
+		quantity := c.PostForm("Quantity")
+
+		quantityInt, _ := strconv.Atoi(quantity)
+
+		newItem := Item{name, quantityInt}
+
+		items = append(items, newItem)
+
+		c.HTML(200, "items", gin.H{
 			"Items": items,
 		})
 	})

@@ -1,8 +1,5 @@
 {{ block "items" . }}
-<h2>Items</h2>
-<ul>
-    {{ range .Items }}
-        <li>{{ .Name }} - {{ .Quantity }}</li>
-    {{ end }}
-</ul>
+{{ range .Items }}
+<li>{{ .Name }} = {{ .Quantity }}</li>
+{{ end }}
 {{ end }}

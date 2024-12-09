@@ -1,0 +1,9 @@
+{{ block "form" . }}
+<form hx-post="/items" hx-target="#list-items" hx-swap="innerHTML">
+    Name
+    <input input="text" name="Name" autocomplete="off">
+    Quantity
+    <input input="text" name="Quantity" autocomplete="off">
+    <button type="submit">Adicionar</button>
+</form>
+{{ end }}
