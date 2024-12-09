@@ -1,9 +1,17 @@
 {{ block "form" . }}
-<form hx-post="/items" hx-target="#list-items" hx-swap="innerHTML">
+<form hx-post="/items">
     Name
     <input input="text" name="Name" autocomplete="off">
     Quantity
     <input input="text" name="Quantity" autocomplete="off">
     <button type="submit">Adicionar</button>
+
+    {{ if .Error.IsNameInvalid }}
+    <div style="color: red">Nome já existe</div>
+    {{ end }}
+
+    {{ if .Error.IsQuantityInvalid }} 
+    <div style="color: red">Quantidade precisa ser um valor numérico</div> 
+    {{ end }}
 </form>
 {{ end }}
