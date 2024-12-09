@@ -1,9 +1,0 @@
-{{ block "items" . }}
-{{ range .Items }}
-<li>{{ .Name }} = {{ .Quantity }}</li>
-{{ end }}
-{{ end }}
-
-{{ block "oob-items" . }}
-<li id="list-items" hx-swap-oob="beforeend">{{ .Name }} = {{ .Quantity }}</li>
-{{ end }}

@@ -15,9 +15,11 @@
     {{ template "form" . }}
 
     <h2>Items</h2>
-    <ul id="list-items">
-        {{ template "items" . }}
-    </ul>
+    <div id="items" style="display: flex; flex-direction: column">
+        {{ range .Items }}
+            {{ template "item" . }}
+        {{ end }}
+    </div>
 </body>
 
 <script>
@@ -32,4 +34,16 @@
 </script>
 
 </html>
+{{ end }}
+
+{{ block "item" . }}
+<div>
+    {{ .Name }} = {{ .Quantity }}
+</div>
+{{ end }}
+
+{{ block "oob-item" . }}
+<div id="items" hx-swap-oob="beforeend">
+    {{ template "item" . }}
+</div>
 {{ end }}

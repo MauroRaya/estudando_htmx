@@ -82,9 +82,7 @@ func main() {
 
 		fmt.Println(items)
 
-		c.HTML(200, "oob-items", gin.H{
-			"Items": items,
-		})
+		c.HTML(200, "oob-item", newItem)
 	})
 
 	r.Run(":80")
